@@ -5,7 +5,7 @@ FILE_PATH = '../data/tasks.csv'
 
 def main():
     manager = TaskManager(FILE_PATH)
-
+#meri chichi hui dhulao mumma
     while True:
         print("\n--- TASK MANAGER ---")
         print("1. Add Task")
@@ -14,7 +14,7 @@ def main():
         print("4. Complete Task")
         print("5. Exit")
         choice = input("Choose an option: ")
-
+# mumma bohot zoor se sussu aayi
         if choice == '1':
             title = input("Task title: ")
             due = input("Due date (YYYY-MM-DD): ")
