@@ -22,8 +22,7 @@ class Task:
 
     @staticmethod
     def from_dict(data):
-        return Task(#So when calling Task(...), the names must match what __init__ expects,
-            # OR you must pass in positional arguments in the correct order.
+        return Task(
             title=data['Title'],
             due_date=data['Due Date'],
             priority=data['Priority'],

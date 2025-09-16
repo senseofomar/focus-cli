@@ -1,10 +1,10 @@
 class Task:
-    def __init__(self, title, priority = 'Medium', deadline = None, category = 'General', completion = False ):
+    def __init__(self, title, priority = 'Medium', deadline = None, category = 'General', completed = False ):
         self.tt = title
         self.prt = priority
         self.dd = deadline
         self.cat = category
-        self.comp = completion
+        self.comp = completed
 
     def mark_complete(self):
         self.comp =True
@@ -15,16 +15,22 @@ class Task:
             "Priority" : self.prt,
             "Deadline" : self.dd,
             "Category" : self.cat,
-            "Completion" : self.comp
+            "Completed" : self.comp
         }
 
 
     @staticmethod
     def from_dict(data):
-        return Task(
+        return Task(#So when calling Task(...), the names must match what __init__ expects,
+            # OR you must pass in positional arguments in the correct order.
+            #Task(data["Title"], data["Deadline"], data["Priority"], data["Category"], data["Completed"]=="True")
+            #using positional arguments above
             title = data["Title"],
             priority = data["Priority"],
             deadline = data["Deadline"],
             category = data["Category"],
-            completion = data["Completion"]
+            completed = data["Completed"]
         )
+
+
+# t1.mark_complete() is equivalent internally to: Task.mark_complete(t1)
