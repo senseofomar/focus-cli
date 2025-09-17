@@ -26,20 +26,28 @@ def main():
             category = input("Enter category (default=General): ")
 
             task = Task(
-                title,
-                priority if priority else "Medium",
-                deadline if deadline else None,
-                category if category else "General"
+                title = title,
+                priority = priority if priority else "Medium",
+                deadline = deadline if deadline else None,
+                category = category if category else "General"
             )
-
             manager.add_task(task)
             print('✅ Task added!')
 
         elif choice =='2':
             manager.list_tasks()
 
+        elif choice =='3':
+            manager.list_tasks(show_completed = False)
+
+        elif choice == '4':
+            manager.list_tasks(show_completed = True)
+            completed_task = int(input('No of the task you completed :' ))
+            manager.complete_task(completed_task -1)
+
+
         else:
-            print('You chose option :', choice)
+            print('You chose an invalid option')
 
 
 if __name__ =='__main__':

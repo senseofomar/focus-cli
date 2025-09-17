@@ -1,0 +1,76 @@
+
+### What this script does:
+
+1. **Finds your project root folder**
+
+   ```python
+   BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+   ```
+
+   * `__file__` → path of the current file (`init_data.py`)
+   * `os.path.abspath(__file__)` → absolute path to it
+   * `os.path.dirname(...dirname(...))` → goes up two levels (so it’s one level above `src/`)
+
+   Example:
+   If this file is at
+
+   ```
+   C:\Users\sense\PycharmProjects\focus_cli\src\init_data.py
+   ```
+
+   then `BASE_DIR` =
+
+   ```
+   C:\Users\sense\PycharmProjects\focus_cli
+   ```
+
+---
+
+2. **Builds the path for your tasks.csv**
+
+   ```python
+   DATA_PATH = os.path.join(BASE_DIR, 'data', 'practice_tasks.csv')
+   ```
+
+   → So CSV will be saved into a new folder `data/` inside the root project directory.
+
+---
+
+3. **Creates the folder if missing**
+
+   ```python
+   os.makedirs(os.path.dirname(DATA_PATH), exist_ok=True)
+   ```
+
+   * Makes sure `data/` exists
+   * `exist_ok=True` prevents errors if the folder already exists.
+
+---
+
+4. **Creates some dummy data** with pandas
+
+   ```python
+   data = {
+       'task': ['Learn Python OOP', 'Review notes'],
+       'completed': [False, True]
+   }
+   df = pd.DataFrame(data)
+   ```
+
+---
+
+5. **Saves it as CSV in the right location**
+
+   ```python
+   df.to_csv(DATA_PATH, index=False)
+   ```
+
+---
+
+6. **Prints confirmation**
+
+   ```python
+   print("✅ CSV saved to:", DATA_PATH)
+   ```
+
+-

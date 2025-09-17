@@ -30,7 +30,7 @@ class Task:
             priority = data["Priority"],
             deadline = data["Deadline"],
             category = data["Category"],
-            completed = data["Completed"]
+            completed = data["Completed"].lower()== 'True'
         )
 '''
 Simple Analogy
