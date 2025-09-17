@@ -29,7 +29,10 @@ class TaskManager:
         with open(self.filepath, mode ='r',newline ='' ,encoding ='utf-8') as f:
             reader = csv.DictReader(f)
             for row in reader:
-                self.tasks.append(Task.from_dict(row))
+                try:
+                    self.tasks.append(Task.from_dict(row))
+                except KeyError as e:
+                    print(f"⚠️ Skipping row due to missing column: {e}")
 
 
     def list_tasks(self, show_completed = True)->None:

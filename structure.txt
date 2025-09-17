@@ -1,0 +1,22 @@
+📂 task_manager_project/
+│
+├── task.py         👷 Worker 1: Knows how a single Task looks & behaves
+│       - Task class
+│       - mark_complete()
+│       - to_dict()
+│       - from_dict()
+│
+├── taskmanager.py  👷 Worker 2: Manages a list of Tasks
+│       - TaskManager class
+│       - add_task()
+│       - list_tasks()
+│       - complete_task()
+│       - save_tasks()
+│       - load_tasks()
+│
+├── tasks.csv       📒 The notebook where tasks are written
+│
+└── main.py         🧑‍💻 You (the boss) who tells workers what to do
+        - creates TaskManager
+        - adds/list tasks
+        - user interaction (menu, input, etc.)
