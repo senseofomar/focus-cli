@@ -30,7 +30,7 @@ class TaskManager:
             reader = csv.DictReader(f)
             for row in reader:
                 try:
-                    self.tasks.append(Task.from_dict(row))
+                    self.tasks.append(Task.from_dict(row))   #here we use Task instead of task because we don't have task yet, we are rebuilding one from the saved dict
                 except KeyError as e:
                     print(f"⚠️ Skipping row due to missing column: {e}")
 

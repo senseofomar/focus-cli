@@ -9,7 +9,7 @@ class Task:
     def mark_complete(self):
         self.comp =True
 
-    def to_dict(self):  #  # return dictionary version (for CSV)
+    def to_dict(self):  # convert an object into a plain dictionary so you can save it (CSV, JSON, etc.).
         return{
             "Title" : self.tt,
             "Priority" : self.prt,
@@ -19,8 +19,9 @@ class Task:
         }
 
 
-    @staticmethod
-    def from_dict(data):    #  # rebuild Task from dictionary
+    @staticmethod       #we mark it @staticmethod → because it belongs to the class, but doesn’t depend on an instance.
+
+    def from_dict(data):    # take plain data (dictionary) and recreate a Task object out of it
         return Task(#So when calling Task(...), the names must match what __init__ expects,
             # OR you must pass in positional arguments in the correct order.
             #Task(data["Title"], data["Deadline"], data["Priority"], data["Category"], data["Completed"]=="True")
