@@ -37,9 +37,9 @@ class TaskManager:
 
     def list_tasks(self, show_completed = True)->None:
         for index, task in enumerate(self.tasks, start =1):
-            if not show_completed and task.completed:
+            if not show_completed and task.comp:
                 continue
-            status = "✅" if task.completed else "❌"
+            status = "✅" if task.comp else "❌"
             print(
                 f"{index}. {task.tt}| Deadline: {task.dd} | Priority: {task.prt} | Category: {task.cat} | Completed: {status}")
 
